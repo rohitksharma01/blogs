@@ -200,31 +200,3 @@ pip install -r requirements.txt
 3. Run inference on images and GIFs using the commands provided.
 
 ## 10. References
-
-## Appendix: Publish as a GitHub Pages Site
-
-This repository is already structured with a `docs/` folder suitable for GitHub Pages.
-
-1) Commit and push the `docs/` folder:
-```zsh
-git add docs
-git commit -m "Docs: blog + images + pages config"
-git push
-```
-
-2) Enable Pages in GitHub:
-- Open your GitHub repo → Settings → Pages
-- Source: "Deploy from a branch"
-- Branch: your default branch (e.g., `main`), Folder: `/docs`
-
-3) Access your site:
-- Project site: `https://<your-username>.github.io/<repo-name>/`
-- Home page: `docs/index.md` (auto-rendered)
-- Blog article: `docs/qr-model-blog.md`
-
-For a user site (`<username>.github.io`), move the content from `docs/` to repo root and set Source to the root.
-- TensorFlow `image_dataset_from_directory`
-- OpenCV `QRCodeDetector` with `detectAndDecode` and `detectAndDecodeMulti`
-- Pillow for GIF frame extraction and synthetic generation
-
-With this pipeline, you can train, detect, and decode QR codes—including animated ones—using a reproducible and extensible setup.
