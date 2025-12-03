@@ -3,7 +3,7 @@
 This repository hosts a technical blog about building a QR code detector and decoder with TensorFlow.
 
 ## View the Blog
-Visit: https://YOUR_USERNAME.github.io/blogs/
+Visit: https://rohitksharma01.github.io/blogs/
 
 ## Local Preview
 ```bash
