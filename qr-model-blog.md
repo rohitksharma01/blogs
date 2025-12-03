@@ -35,7 +35,16 @@ The full project lives in this workspace. Key scripts:
 
 ## 1. Data Generation
 
-We generated QR and non-QR images to build a robust binary classifier (QR vs non-QR).
+This is the most important bit, you need a lot of QRCodes to train your models. You can try doanloading as much as you want, but I wouldnt go that route. I asked AI to generate loads of QRcodes and non qr code images. 
+
+Being a simple guy and from a cybersecurity background I havent encountered funky QRCodes only the black ones, one I use daily for my gym entry and others for return labels from online shopping. 
+
+The initial model I created, easily detected the normal QRCodes and decoded them but then i let my curiosity run wild. 
+Lets find QRCodes in giphy, our beloved gif playground. I immediately realized this model wont work for all use cases. 
+
+I encountered QR Codes of all shapes, size colors and what not. So I wanted to denerate QR Code accordingly, with different colors, backgrounds and noisy qrcodes. 
+
+I generated QR and non-QR images to build a robust binary classifier (QR vs non-QR).
 
 - QR styles:
   - Gradient backgrounds with colored QR and alpha
@@ -124,7 +133,8 @@ If decoding succeeds, you'll see the QR payload printed.
 
 ## 5. Decoding QR Codes from GIFs
 
-Animated GIFs can be tricky. We implemented two tools:
+Animated GIFs can be tricky. So we have to look into each frame or atleast a few of them to find and decode a QRCode.
+There are different strategies, either look frame by frame or overlay frames to check if qw have a QRCode.
 
 ### 5.1 Cumulative Overlay and Decode
 `src/infer_gif.py` can:
