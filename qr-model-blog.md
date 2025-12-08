@@ -153,24 +153,41 @@ There are different strategies, either look frame by frame or overlay frames to 
 
 ```zsh
 # Cumulative overlays: save images, run detection and decode
-python3 src/infer_gif.py --gif ~/Desktop/qrgif.gif --model models/qr_classifier.h5 --threshold 0.5 --overlay-mode cumulative --blend-mode average
+python3 src/infer_gif.py --gif assets/sunqr.gif --model models/qr_classifier.h5 --threshold 0.5 --overlay-mode cumulative --blend-mode average
 ```
 
-Example cumulative overlays (frames 1 and 1..50):
+**Example 1: Sun QR Code Animation**
 
-![GIF overlay frames 1..1](assets/gif_overlay_0001.png)
-**Caption:** Single-frame overlay (first frame) — sharpest modules.
-```
-Detection: 100% confidence
-Note: Individual frames typically have best clarity for decoding
+![Sun QR Animation](assets/sunqr.gif)
+
+This animated GIF features a QR code with a sun/radial background animation that cycles through different brightness levels.
+
+```zsh
+python3 src/decode_animated_qr.py --gif assets/sunqr.gif --save-debug
 ```
 
-![GIF overlay frames 1..50](assets/gif_overlay_0050.png)
-**Caption:** Cumulative overlay 1..50 — reduced noise but softened edges.
+**Decoding Result:** Successfully decoded using **Strategy 1 (Individual frames)**. The decoder extracted 15 frames from the animation and successfully decoded the QR code from the first frame.
+
+**Decoded Output:**
 ```
-Detection: 100% confidence
-Note: Blending can reduce noise but may blur QR modules
-Strategy: Apply thresholding/sharpening before decoding
+Awesome
+```
+
+**Example 2: Bird QR Code Animation**
+
+![Bird QR Animation](assets/birdqr.gif)
+
+This GIF shows a QR code overlaid on an animated bird background. The moving background elements present a challenge for detection.
+
+```zsh
+python3 src/decode_animated_qr.py --gif assets/birdqr.gif --save-debug
+```
+
+**Decoding Result:** Successfully decoded using **Strategy 1 (Individual frames)**. Despite only having 2 frames and an animated bird background, the decoder successfully extracted the QR code from the first frame.
+
+**Decoded Output:**
+```
+https://ilovefreesoftware.com
 ```
 
 ### 5.2 Multi-Strategy Animated Decoder
@@ -182,12 +199,13 @@ Strategy: Apply thresholding/sharpening before decoding
 - Strategy 4: Sliding window overlays
 - Strategy 5: Frame differences
 
-Run:
-```zsh
-python3 src/decode_animated_qr.py --gif ~/Desktop/qrgif.gif --save-debug
-```
+The decoder automatically tries all strategies in sequence and stops at the first successful decode. Debug images are saved to `qr_decode_debug/` to help understand which approach worked.
 
-Debug images are saved to `qr_decode_debug/` to help understand which approach worked.
+**Key Learnings from Animated GIF Decoding:**
+- Animated backgrounds require different strategies depending on whether the QR itself is animated or static
+- Median blending is particularly effective for static QR codes with animated backgrounds
+- Individual frame enhancement works best when the QR code has consistent structure across frames
+- Saving debug images helps identify which strategy worked and why
 
 ## 6. Results and Observations
 
@@ -218,38 +236,6 @@ Below are decoded outputs from our test samples:
 - Decoded: `IwJurj8TZsKpketN5vICdibE5`
 
 All samples were correctly identified as containing QR codes. Decoding success varies with contrast and module clarity.
-
-### Animated GIF QR Codes
-
-**Sun QR Code (sunqr.gif):**
-
-![Sun QR Animation](assets/sunqr.gif)
-
-This animated GIF features a QR code with a sun/radial background animation. To decode it, we use the multi-strategy decoder:
-
-```zsh
-python3 src/decode_animated_qr.py --gif assets/sunqr.gif --save-debug
-```
-
-**Decoding Strategy:** Successfully decoded using **Strategy 2 (Enhanced frames)** with Otsu thresholding applied to individual frames. The animation cycles through different brightness levels, but the QR modules remain sufficiently intact in most frames for successful extraction.
-
-**Bird QR Code (birdqr.gif):**
-
-![Bird QR Animation](assets/birdqr.gif)
-
-This animated GIF shows a QR code overlaid on a bird animation background. The challenge here is the moving background elements that can interfere with QR detection.
-
-```zsh
-python3 src/decode_animated_qr.py --gif assets/birdqr.gif --save-debug
-```
-
-**Decoding Strategy:** Best results achieved with **Strategy 3 (Cumulative overlay with median blending)** followed by adaptive thresholding. The median blend effectively filters out the animated bird elements while preserving the static QR code structure across frames.
-
-**Key Learnings:**
-- Animated backgrounds require different strategies depending on whether the QR itself is animated or static
-- Median blending is particularly effective for static QR codes with animated backgrounds
-- Individual frame enhancement works best when the QR code has consistent structure across frames
-- Saving debug images helps identify which strategy worked and why
 
 ## 8. Tips for Robustness
 
