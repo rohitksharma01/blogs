@@ -241,10 +241,10 @@ python3 src/infer_gif.py <span class="nt">--gif</span> assets/sunqr.gif <span cl
 <div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 src/decode_animated_qr.py <span class="nt">--gif</span> assets/sunqr.gif <span class="nt">--save-debug</span>
 </code></pre></div></div>
 
-<p><strong>Decoding Result:</strong> Successfully decoded using <strong>Strategy 2 (Enhanced frames)</strong> with Otsu thresholding. The QR modules remain sufficiently intact in most frames despite the animated background.</p>
+<p><strong>Decoding Result:</strong> Successfully decoded using <strong>Strategy 1 (Individual frames)</strong>. The decoder extracted 15 frames from the animation and successfully decoded the QR code from the first frame.</p>
 
 <p><strong>Decoded Output:</strong></p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://github.com/rohitksharma01
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Awesome
 </code></pre></div></div>
 
 <p><strong>Example 2: Bird QR Code Animation</strong></p>
@@ -256,10 +256,10 @@ python3 src/infer_gif.py <span class="nt">--gif</span> assets/sunqr.gif <span cl
 <div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 src/decode_animated_qr.py <span class="nt">--gif</span> assets/birdqr.gif <span class="nt">--save-debug</span>
 </code></pre></div></div>
 
-<p><strong>Decoding Result:</strong> Best results with <strong>Strategy 3 (Cumulative overlay with median blending)</strong> followed by adaptive thresholding. Median blend filters out the animated bird while preserving the static QR structure.</p>
+<p><strong>Decoding Result:</strong> Successfully decoded using <strong>Strategy 1 (Individual frames)</strong>. Despite only having 2 frames and an animated bird background, the decoder successfully extracted the QR code from the first frame.</p>
 
 <p><strong>Decoded Output:</strong></p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://github.com/rohitksharma01/qr-detector
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://ilovefreesoftware.com
 </code></pre></div></div>
 
 <h3 id="52-multi-strategy-animated-decoder">5.2 Multi-Strategy Animated Decoder</h3>
