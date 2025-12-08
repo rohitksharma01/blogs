@@ -1,3 +1,8 @@
+---
+layout: default
+title: QR Code Detector & Decoder
+---
+
 # QR Code Detector & Decoder
 
 Qushing is the buzzword these days whoever is dealing with emails threats and its a pain for security teams. 

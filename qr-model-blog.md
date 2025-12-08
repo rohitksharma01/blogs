@@ -1,3 +1,8 @@
+---
+layout: default
+title: Building a QR Code Detector and Decoder with TensorFlow
+---
+
 # Building a QR Code Detector and Decoder with TensorFlow
 
 [← Back to Home](./index.md)
@@ -213,6 +218,38 @@ Below are decoded outputs from our test samples:
 - Decoded: `IwJurj8TZsKpketN5vICdibE5`
 
 All samples were correctly identified as containing QR codes. Decoding success varies with contrast and module clarity.
+
+### Animated GIF QR Codes
+
+**Sun QR Code (sunqr.gif):**
+
+![Sun QR Animation](assets/sunqr.gif)
+
+This animated GIF features a QR code with a sun/radial background animation. To decode it, we use the multi-strategy decoder:
+
+```zsh
+python3 src/decode_animated_qr.py --gif assets/sunqr.gif --save-debug
+```
+
+**Decoding Strategy:** Successfully decoded using **Strategy 2 (Enhanced frames)** with Otsu thresholding applied to individual frames. The animation cycles through different brightness levels, but the QR modules remain sufficiently intact in most frames for successful extraction.
+
+**Bird QR Code (birdqr.gif):**
+
+![Bird QR Animation](assets/birdqr.gif)
+
+This animated GIF shows a QR code overlaid on a bird animation background. The challenge here is the moving background elements that can interfere with QR detection.
+
+```zsh
+python3 src/decode_animated_qr.py --gif assets/birdqr.gif --save-debug
+```
+
+**Decoding Strategy:** Best results achieved with **Strategy 3 (Cumulative overlay with median blending)** followed by adaptive thresholding. The median blend effectively filters out the animated bird elements while preserving the static QR code structure across frames.
+
+**Key Learnings:**
+- Animated backgrounds require different strategies depending on whether the QR itself is animated or static
+- Median blending is particularly effective for static QR codes with animated backgrounds
+- Individual frame enhancement works best when the QR code has consistent structure across frames
+- Saving debug images helps identify which strategy worked and why
 
 ## 8. Tips for Robustness
 
