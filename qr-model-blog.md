@@ -79,6 +79,7 @@ python3 src/prepare_dataset.py --raw-dir data/raw --out-dir data/dataset --val-r
 Example outputs:
 
 ![Colored QR on gradient background](assets/qr_gradient_sample.png)
+
 **Caption:** Colored QR with semi-transparent modules over a vertical gradient.
 ```
 Detection: 100% confidence
@@ -86,6 +87,7 @@ Decoded: 74055288-cb33-4fe9-9bec-fdd6fc9ebd97
 ```
 
 ![Colored QR on solid background](assets/qr_solid_sample.png)
+
 **Caption:** Colored QR rendered on a solid pastel background.
 ```
 Detection: 100% confidence
@@ -93,6 +95,7 @@ Decoded: (OpenCV could not extract - high transparency)
 ```
 
 ![Classic QR on noisy background](assets/qr_noisy_sample.png)
+
 **Caption:** Classic black/white QR composited onto a noisy textured background.
 ```
 Detection: 100% confidence
