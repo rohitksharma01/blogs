@@ -60,7 +60,7 @@ The full project lives in this workspace. Key scripts:
 
 ## 1. Data Generation
 
-This is the most important bit, you need a lot of QRCodes to train your models. You can try doanloading as much as you want, but I wouldnt go that route. I asked AI to generate loads of QRcodes and non qr code images. 
+This is the most important bit, you need a lot of QRCodes to train your models. You can try downloading as much as you want, but I wouldnt go that route. I asked AI to generate loads of QRcodes and non qr code images. 
 
 Being a simple guy and from a cybersecurity background I havent encountered funky QRCodes only the black ones, one I use daily for my gym entry and others for return labels from online shopping. 
 
