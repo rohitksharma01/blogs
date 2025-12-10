@@ -14,9 +14,8 @@ title: Building a QR Code Detector and Decoder with TensorFlow
 4. [Inference and Decoding (Static Images)](#4-inference-and-decoding-static-images)
 5. [Decoding QR Codes from GIFs](#5-decoding-qr-codes-from-gifs)
 6. [Results and Observations](#6-results-and-observations)
-7. [Results Gallery](#7-results-gallery)
-8. [Tips for Robustness](#8-tips-for-robustness)
-9. [Try It Yourself](#9-try-it-yourself)
+7. [Tips for Robustness](#7-tips-for-robustness)
+8. [Try It Yourself](#8-try-it-yourself)
 
 ---
 
@@ -244,28 +243,7 @@ The script extracts all frames, creates cumulative overlays with different blend
   - Otsu/adaptive thresholding frequently recovers sufficient contrast.
   - Sliding window overlays offer a good trade-off between noise reduction and sharpness.
 
-## 7. Results Gallery
-
-Below are decoded outputs from our test samples:
-
-**Gradient Background QR:**
-- Image: `qr_gradient_sample.png`
-- Detection probability: 1.0000
-- Decoded: `74055288-cb33-4fe9-9bec-fdd6fc9ebd97`
-
-**Solid Background QR:**
-- Image: `qr_solid_sample.png`
-- Detection probability: 1.0000
-- Decoded: *(QR detected but OpenCV couldn't extract data — likely high transparency or color contrast issue)*
-
-**Noisy Background QR:**
-- Image: `qr_noisy_sample.png`
-- Detection probability: 1.0000
-- Decoded: `IwJurj8TZsKpketN5vICdibE5`
-
-All samples were correctly identified as containing QR codes. Decoding success varies with contrast and module clarity.
-
-## 8. Tips for Robustness
+## 7. Tips for Robustness
 
 - Increase dataset diversity: scale, rotation, noise, blur, colors, backgrounds.
 - Use more augmentation during training.
