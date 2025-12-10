@@ -60,14 +60,14 @@ The full project lives in this workspace. Key scripts:
 
 ## 1. Data Generation
 
-This is the most important bit, you need a lot of QRCodes to train your models. You can try downloading as much as you want, but I wouldnt go that route. I asked AI to generate loads of QRcodes and non qr code images. 
+This is the most important bit: you need a lot of QR codes to train your models. You can try downloading as much as you want, but I wouldn’t go that route. I asked AI to generate loads of QR codes and non-QR code images. 
 
 Being a simple guy and from a cybersecurity background I havent encountered funky QRCodes only the black ones, one I use daily for my gym entry and others for return labels from online shopping. 
 
-The initial model I created, easily detected the normal QRCodes and decoded them but then i let my curiosity run wild. 
-Lets find QRCodes in giphy, our beloved gif playground. I immediately realized this model wont work for all use cases. 
+The initial model I created, easily detected the normal QR Codes and decoded them but then I let my curiosity run wild. 
+Lets find QR Codes in giphy, our beloved gif playground. I immediately realized this model wont work for all use cases. 
 
-I encountered QR Codes of all shapes, size colors and what not. So I wanted to denerate QR Code accordingly, with different colors, backgrounds and noisy qrcodes. 
+I encountered QR Codes of all shapes, size colors and what not. So I wanted to denerate QR Code accordingly, with different colors, backgrounds and noisy QR codes. 
 
 I generated QR and non-QR images to build a robust binary classifier (QR vs non-QR).
 
