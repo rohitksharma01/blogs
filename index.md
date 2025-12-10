@@ -24,6 +24,8 @@ I used github copilot to write the code for me.
 ## Documentation
 📖 **[Read the Full Technical Blog →](./qr-model-blog.md)**
 
+💻 **[View on GitHub →](https://github.com/rohitksharma01/QRDecoder)**
+
 ## Project Overview
 - **Dataset:** 10,000 QR images (gradient, solid, noisy backgrounds) + 10,000 non-QR images
 - **Model:** Compact CNN with ~615K parameters, 128×128 grayscale inputs

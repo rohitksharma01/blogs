@@ -1,0 +1,23 @@
+# Jekyll generated site
+_site/
+
+# Sass cache
+.sass-cache/
+
+# Ruby
+.ruby-version
+Gemfile.lock
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dependencies
+vendor/
+
+# Local testing
+.jekyll-cache/

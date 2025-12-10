@@ -1,4 +1,26 @@
 title: QR Code Detector & Decoder
-logo: /assets/qr_gradient_sample.png
-theme: jekyll-theme-midnight
+author: Rohit Sharma
+description: Building a QR Code Detector and Decoder with TensorFlow and OpenCV
+url: "https://rohitksharma01.github.io"
+baseurl: "/blogs"
+
+# Using local moonwalk theme files
 markdown: kramdown
+
+# Moonwalk theme settings
+moonwalk:
+  # Dark mode enabled by default
+  theme: dark
+  logo: /assets/qr_gradient_sample.png
+
+# Author info
+author:
+  name: Rohit Sharma
+  email: rohitksharma01@gmail.com
+  github: rohitksharma01
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-remote-theme

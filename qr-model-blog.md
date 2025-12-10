@@ -17,16 +17,38 @@ title: Building a QR Code Detector and Decoder with TensorFlow
 7. [Results Gallery](#7-results-gallery)
 8. [Tips for Robustness](#8-tips-for-robustness)
 9. [Try It Yourself](#9-try-it-yourself)
-10. [References](#10-references)
-11. [Appendix: Publish as a GitHub Pages Site](#appendix-publish-as-a-github-pages-site)
 
 ---
 
 This post walks through how we:
 - Generated a large synthetic dataset of QR and non-QR images
 - Trained a TensorFlow model to detect QR presence
-- Decoded QR codes (including from animated GIFs) using OpenCV
+- Decoded QR codes (including from animated GIFs) using OpenCV and pyzbar
 - Applied multiple strategies to robustly decode difficult GIF QR codes
+
+## Technologies & Libraries Used
+
+The project leverages the following key libraries:
+
+**Machine Learning & Computer Vision:**
+- **TensorFlow** (≥2.14): Deep learning framework for building and training the QR detection CNN
+- **OpenCV** (≥4.8): Computer vision library for image processing and QR code detection/decoding
+- **NumPy** (≥1.24): Numerical computing for array operations and image manipulation
+- **scikit-learn** (≥1.3): Machine learning utilities for data splitting and preprocessing
+
+**QR Code Generation & Decoding:**
+- **qrcode[pil]** (≥7.4): QR code generation with PIL integration for creating diverse training datasets
+- **pyzbar**: Advanced barcode/QR code decoding library with robust detection capabilities
+- **Pillow** (≥10.0): Image processing library for handling various image formats including animated GIFs
+
+**Visualization & Utilities:**
+- **matplotlib** (≥3.8): Plotting and visualization for training metrics and results
+- **tqdm** (≥4.66): Progress bars for long-running operations
+
+You can install all dependencies with:
+```bash
+pip install -r requirements.txt
+```
 
 The full project lives in this workspace. Key scripts:
 - `src/generate_qr.py`: QR generator with color, transparency, and background styles
@@ -255,5 +277,3 @@ pip install -r requirements.txt
 
 2. Generate data (as above), prepare dataset, and train.
 3. Run inference on images and GIFs using the commands provided.
-
-## 10. References
