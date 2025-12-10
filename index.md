@@ -5,22 +5,22 @@ title: QR Code Detector & Decoder
 
 # QR Code Detector & Decoder
 
-Quishing is the buzzword these days whoever is dealing with emails threats and its a pain for security teams. 
-It's always a cat and mouse game with threats and this is another one getting cheekier as we tackle thhe easier ones.
+Phishing via QR (“quishing”) is the buzzword these days for anyone dealing with email threats, and it's a pain for security teams.
+It's always a cat-and-mouse game with threats, and this one keeps getting cheekier as we tackle the easier ones.
 
-As I explored more I can see why, QR Codes are very robust and it can be detected even if many parts of the QR code arent visible or corrupt, thats what makes it more challenging. You can find QR Code in many forms, blurry, skewed, cutoff and to make it worse a gif QR Code. 
+As I explored more, I can see why, QR codes are very robust and can be detected even if many parts aren't visible or are corrupt—that's what makes them challenging. You can find QR codes in many forms: blurry, skewed, cut off, and to make it worse, as GIF QR codes.
 
-I was curious about detecting QRCode in GIF format and apply my ML knowledge to good use. 
+I was curious about detecting QR codes in GIF format and applying my ML knowledge to good use.
 
-My approach was simple.
-- Create a LiteRT model for identifying QRCodes
-- Use the models to indetify if an image has QR Code
-- Use python to decode the QR Codes 
-- Apply strategies to use the above approach to decode a gif qr code
-- If we see a new gif thats not detected, we can use it to train new models
+My approach was simple:
+- Create a TFLite model for identifying QR codes
+- Use the models to identify if an image has a QR code
+- Use Python to decode the QR codes 
+- Apply strategies to use the above approach to decode a GIF QR code
+- If we see a new GIF that's not detected, we can use it to train new models
 
 Let's put AI to work, because vibe coding is what we do these days! 
-I used github copilot with multiple models auto selected. 
+I used GitHub Copilot with multiple models auto-selected. 
 
 ## Documentation
 📖 **[Read the Full Technical Blog →](./qr-model-blog.md)**
