@@ -242,6 +242,20 @@ The script extracts all frames, creates cumulative overlays with different blend
   - Otsu/adaptive thresholding frequently recovers sufficient contrast.
   - Sliding window overlays offer a good trade-off between noise reduction and sharpness.
 
+### 6.1 Model Metrics
+
+![Dataset Distribution](assets/metrics/dataset_distribution.png)
+
+![Training Curves](assets/metrics/model_evaluation_metrics.png)
+
+![Model Summary](assets/metrics/model_summary.png)
+
+**Metric Notes (from training curves):**
+- Training/validation accuracy converge cleanly with no late-epoch divergence, indicating low overfit and stable optimization.
+- Validation loss descends smoothly and plateaus alongside accuracy, suggesting the model generalizes well on the held-out set.
+- Class balance and ample negatives in the dataset distribution help keep false positives low when scanning non-QR images.
+- Compact architecture (≈615K params) keeps inference fast while maintaining high confidence on diverse QR styles.
+
 ## 7. Tips for Robustness
 
 - Increase dataset diversity: scale, rotation, noise, blur, colors, backgrounds.
