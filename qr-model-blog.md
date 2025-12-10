@@ -3,7 +3,7 @@ layout: default
 title: Building a QR Code Detector with TensorFlow and Decoder using OpenCV and Pyzar
 ---
 
-# Building a QR Code Detector and Decoder with TensorFlow
+# Building a QR Code Detector with TensorFlow and Decoder using OpenCV and Pyzar
 
 [← Back to Home](./index.md)
 
