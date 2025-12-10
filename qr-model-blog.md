@@ -185,10 +185,14 @@ python3 src/infer_gif.py --gif assets/sunqr.gif --model models/qr_classifier.h5 
 This animated GIF features a QR code with a sun/radial background animation that cycles through different brightness levels.
 
 ```zsh
-python3 src/decode_animated_qr.py --gif assets/sunqr.gif --save-debug
+python3 src/infer_gif.py --gif assets/sunqr.gif --model models/qr_classifier.h5 --threshold 0.5 --overlay-mode cumulative --blend-mode average
 ```
 
-**Decoding Result:** Successfully decoded using **Strategy 1 (Individual frames)**. The decoder extracted 15 frames from the animation and successfully decoded the QR code from the first frame.
+**Decoding Result (using infer_gif):**
+- Extracted 15 frames from the animation
+- Tested cumulative overlays with average blending
+- QR code detected with high confidence across multiple overlay combinations
+- Successfully decoded from cumulative overlay strategy
 
 **Decoded Output:**
 ```
@@ -202,32 +206,34 @@ Awesome
 This GIF shows a QR code overlaid on an animated bird background. The moving background elements present a challenge for detection.
 
 ```zsh
-python3 src/decode_animated_qr.py --gif assets/birdqr.gif --save-debug
+python3 src/infer_gif.py --gif assets/birdqr.gif --model models/qr_classifier.h5 --threshold 0.5 --overlay-mode cumulative --blend-mode median
 ```
 
-**Decoding Result:** Successfully decoded using **Strategy 1 (Individual frames)**. Despite only having 2 frames and an animated bird background, the decoder successfully extracted the QR code from the first frame.
+**Decoding Result (using infer_gif):**
+- Extracted 2 frames from the animation
+- Tested cumulative overlays with median blending (effective for animated backgrounds)
+- QR code detected with high confidence despite moving bird background
+- Successfully decoded from cumulative overlay with median blending
 
 **Decoded Output:**
 ```
 https://ilovefreesoftware.com
 ```
 
-### 5.2 Multi-Strategy Animated Decoder
-`src/decode_animated_qr.py` implements 5 strategies and exits immediately upon first successful decode:
+### 5.2 GIF Processing Strategy
+`src/infer_gif.py` uses cumulative overlay approach with multiple blending modes:
 
-- Strategy 1: Individual frames
-- Strategy 2: Enhanced frames (binary/otsu/adaptive thresholds, sharpening, contrast, denoise)
-- Strategy 3: Cumulative overlays (average/max/median) + enhancements
-- Strategy 4: Sliding window overlays
-- Strategy 5: Frame differences
+- **Average blending**: Works well when QR code is static and background is animated
+- **Median blending**: Particularly effective at removing dynamic background noise while preserving QR module structure
+- **Max blending**: Useful for detecting presence across frames with varying intensity
 
-The decoder automatically tries all strategies in sequence and stops at the first successful decode. Debug images are saved to `qr_decode_debug/` to help understand which approach worked.
+The script extracts all frames, creates cumulative overlays with different blend modes, runs the classifier on each overlay, and attempts OpenCV decoding. Overlays are saved to `tmp_cumulative_overlays/` for inspection.
 
 **Key Learnings from Animated GIF Decoding:**
-- Animated backgrounds require different strategies depending on whether the QR itself is animated or static
+- Cumulative overlays with appropriate blending modes can significantly improve QR detection and decoding
 - Median blending is particularly effective for static QR codes with animated backgrounds
-- Individual frame enhancement works best when the QR code has consistent structure across frames
-- Saving debug images helps identify which strategy worked and why
+- Average blending works well when the QR code structure is consistent across frames
+- Saving intermediate overlays helps understand which blend mode and frame combination produces the best result
 
 ## 6. Results and Observations
 
