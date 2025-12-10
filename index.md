@@ -8,7 +8,7 @@ title: QR Code Detector & Decoder
 Phishing via QR (“quishing”) is the buzzword these days for anyone dealing with email threats, and it's a pain for security teams.
 It's always a cat-and-mouse game with threats, and this one keeps getting cheekier as we tackle the easier ones.
 
-As I explored more, I can see why, QR codes are very robust and can be detected even if many parts aren't visible or are corrupt—that's what makes them challenging. You can find QR codes in many forms: blurry, skewed, cut off, and to make it worse, as GIF QR codes.
+As I explored more, I can see why, QR codes are very robust and can be detected even if many parts aren't visible or are corrupt, that's what makes them challenging. You can find QR codes in many forms: blurry, skewed, cut off, and to make it worse, as GIF QR codes.
 
 I was curious about detecting QR codes in GIF format and applying my ML knowledge to good use.
 
