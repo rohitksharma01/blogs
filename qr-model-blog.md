@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Building a QR Code Detector with TensorFlow and Decoder using OpenCV and Pyzar
+title: Building a QR Code Detector with TensorFlow and Decoder using OpenCV and Pyzbar
 ---
 
-# Building a QR Code Detector with TensorFlow and Decoder using OpenCV and Pyzar
+# Building a QR Code Detector with TensorFlow and Decoder using OpenCV and Pyzbar
 
 [← Back to Home](./index.md)
 
@@ -162,7 +162,7 @@ If decoding succeeds, you'll see the QR payload printed.
 ## 5. Decoding QR Codes from GIFs
 
 Animated GIFs can be tricky. So we have to look into each frame or atleast a few of them to find and decode a QRCode.
-There are different strategies, either look frame by frame or overlay frames to check if qw have a QRCode. In some cases qhen these QRCodes dont decode, I tried to resize them and then it was decoded. OpenCV did not decode all gif QRCode frames so had to use Pyzar which is more advanced and was able to do the job. 
+There are different strategies, either look frame by frame or overlay frames to check if qw have a QRCode. In some cases qhen these QRCodes dont decode, I tried to resize them and then it was decoded. OpenCV did not decode all gif QRCode frames so had to use Pyzbar which is more advanced and was able to do the job. 
 
 ### 5.1 Cumulative Overlay and Decode
 `src/infer_gif.py` can:
