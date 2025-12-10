@@ -5,7 +5,7 @@ title: QR Code Detector & Decoder
 
 # QR Code Detector & Decoder
 
-Qushing is the buzzword these days whoever is dealing with emails threats and its a pain for security teams. 
+Quishing is the buzzword these days whoever is dealing with emails threats and its a pain for security teams. 
 It's always a cat and mouse game with threats and this is another one getting cheekier as we tackle thhe easier ones.
 
 As I explored more I can see why, QR Codes are very robust and it can be detected even if many parts of the QR code arent visible or corrupt, thats what makes it more challenging. You can find QR Code in many forms, blurry, skewed, cutoff and to make it worse a gif QR Code. 
