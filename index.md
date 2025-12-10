@@ -8,7 +8,7 @@ title: QR Code Detector & Decoder
 Qushing is the buzzword these days whoever is dealing with emails threats and its a pain for security teams. 
 It's always a cat and mouse game with threats and this is another one getting cheekier as we tackle thhe easier ones.
 
-As i explored more I can see why, QR Codes are very robust and it can be detected even if many parts of the QR code arent visible or corrupt, thats what makes it more challenging. You can find QR Code in many forms, blussy, skewed, cutoff and to make it worse a gif QR Code. 
+As I explored more I can see why, QR Codes are very robust and it can be detected even if many parts of the QR code arent visible or corrupt, thats what makes it more challenging. You can find QR Code in many forms, blurry, skewed, cutoff and to make it worse a gif QR Code. 
 
 I was curious about detecting QRCode in GIF format and apply my ML knowledge to good use. 
 
@@ -16,10 +16,11 @@ My approach was simple.
 - Create a LiteRT model for identifying QRCodes
 - Use the models to indetify if an image has QR Code
 - Use python to decode the QR Codes 
-- Apply strategies to use the above approac to decode a gif qr code
+- Apply strategies to use the above approach to decode a gif qr code
+- If we see a new gif thats not detected, we can use it to train new models
 
-Let's put AI to work, because why not! It can do this job easily, you have to be prompty :) 
-I used github copilot to write the code for me. 
+Let's put AI to work, because vibe coding is what we do these days! 
+I used github copilot with multiple models auto selected. 
 
 ## Documentation
 📖 **[Read the Full Technical Blog →](./qr-model-blog.md)**

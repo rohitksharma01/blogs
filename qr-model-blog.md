@@ -164,7 +164,7 @@ If decoding succeeds, you'll see the QR payload printed.
 ## 5. Decoding QR Codes from GIFs
 
 Animated GIFs can be tricky. So we have to look into each frame or atleast a few of them to find and decode a QRCode.
-There are different strategies, either look frame by frame or overlay frames to check if qw have a QRCode.
+There are different strategies, either look frame by frame or overlay frames to check if qw have a QRCode. In some cases qhen these QRCodes dont decode, I tried to resize them and then it was decoded. OpenCV did not decode all gif QRCode frames so had to use Pyzar which is more advanced and was able to do the job. 
 
 ### 5.1 Cumulative Overlay and Decode
 `src/infer_gif.py` can:
@@ -266,14 +266,4 @@ All samples were correctly identified as containing QR codes. Decoding success v
 - Consider adding a segmentation or object-detection model to localize the QR region before decoding.
 - For heavily animated GIFs, export frames and inspect overlays manually (we save them for you).
 
-## 9. Try It Yourself
 
-1. Create venv and install deps:
-```zsh
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-2. Generate data (as above), prepare dataset, and train.
-3. Run inference on images and GIFs using the commands provided.
