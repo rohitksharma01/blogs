@@ -37,9 +37,8 @@ I used github copilot with multiple models auto selected.
 - [Dataset generation](./qr-model-blog.md#1-data-generation): `generate_qr.py`, `generate_non_qr.py`
 - [Training](./qr-model-blog.md#3-training-pipeline): `train.py`
 - [Inference](./qr-model-blog.md#4-inference-and-decoding-static-images): `infer_and_decode.py`
-- [GIF overlays](./qr-model-blog.md#51-cumulative-overlay-and-decode): `infer_gif.py`
-- [Animated decoder](./qr-model-blog.md#52-multi-strategy-animated-decoder): `decode_animated_qr.py`
-- [Results Gallery](./qr-model-blog.md#7-results-gallery)
+- [GIF decoding](./qr-model-blog.md#5-decoding-qr-codes-from-gifs): `infer_gif.py`
+- [Tips for robustness](./qr-model-blog.md#7-tips-for-robustness)
 
 ## Sample Images
 ![Gradient QR](./assets/qr_gradient_sample.png)

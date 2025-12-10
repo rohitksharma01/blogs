@@ -15,7 +15,6 @@ title: Building a QR Code Detector and Decoder with TensorFlow
 5. [Decoding QR Codes from GIFs](#5-decoding-qr-codes-from-gifs)
 6. [Results and Observations](#6-results-and-observations)
 7. [Tips for Robustness](#7-tips-for-robustness)
-8. [Try It Yourself](#8-try-it-yourself)
 
 ---
 
