@@ -67,7 +67,7 @@ Being a simple guy and from a cybersecurity background I havent encountered funk
 The initial model I created, easily detected the normal QR Codes and decoded them but then I let my curiosity run wild. 
 Lets find QR Codes in giphy, our beloved gif playground. I immediately realized this model wont work for all use cases. 
 
-I encountered QR Codes of all shapes, size colors and what not. So I wanted to denerate QR Code accordingly, with different colors, backgrounds and noisy QR codes. 
+I encountered QR Codes of all shapes, size colors and what not. So I wanted to generate QR Code accordingly, with different colors, backgrounds and noisy QR codes. 
 
 I generated QR and non-QR images to build a robust binary classifier (QR vs non-QR).
 
